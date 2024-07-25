@@ -1,5 +1,5 @@
 package com.example.bank.model;
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
@@ -16,5 +16,19 @@ public class Transaction {
     private LocalDateTime timestamp;
     private String type; // "DEPOSIT", "WITHDRAWAL", "TRANSFER"
 
-    // Конструкторы, геттеры и сеттеры
+    public Transaction(double amount) {
+        this.amount = amount;
+    }
+
+
+    public Transaction() {
+
+    }
+
+    public Transaction(Account account, double amount, String deposit) {
+
+    }
+
+
+// Конструкторы, геттеры и сеттеры
 }

@@ -1,34 +1,46 @@
 package com.example.bank.model;
 import jakarta.persistence.*;
-import java.time.LocalDateTime;
+
+
 
 @Entity
 public class Transaction {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private int amount;
+    private Long accountNumber;
+    private int pin;
 
-    @ManyToOne
-    @JoinColumn(name = "account_id", nullable = false)
-    private Account account;
+    public Transaction() {
+    }
 
-    private double amount;
-    private LocalDateTime timestamp;
-    private String type; // "DEPOSIT", "WITHDRAWAL", "TRANSFER"
+    public Transaction(int amount, Long accountNumber, int pin) {
+        this.amount = amount;
+        this.accountNumber = accountNumber;
+        this.pin = pin;
+    }
 
-    public Transaction(double amount) {
+    public int getAmount() {
+        return amount;
+    }
+
+    public void setAmount(int amount) {
         this.amount = amount;
     }
 
-
-    public Transaction() {
-
+    public Long getAccountNumber() {
+        return accountNumber;
     }
 
-    public Transaction(Account account, double amount, String deposit) {
-
+    public void setAccountNumber(Long accountNumber) {
+        this.accountNumber = accountNumber;
     }
 
+    public int getPin() {
+        return pin;
+    }
 
-// Конструкторы, геттеры и сеттеры
+    public void setPin(int pin) {
+        this.pin = pin;
+    }
 }

@@ -1,8 +1,9 @@
 package com.example.bank.repository;
-import com.example.bank.model.Account;
 import org.springframework.data.jpa.repository.JpaRepository;
-import java.util.List;
-public interface AccountRepository extends JpaRepository<Account, Long> {
-    List<Account> findByBeneficiaryName(String beneficiaryName);
+import org.springframework.stereotype.Repository;
+import com.example.bank.model.Account;
 
+@Repository
+public interface AccountRepository extends JpaRepository<Account,Integer> {
+    Account findAccountByAccountId(Long id);
 }

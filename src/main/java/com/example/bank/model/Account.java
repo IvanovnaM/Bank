@@ -1,48 +1,89 @@
 package com.example.bank.model;
 
 import jakarta.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
+import org.hibernate.annotations.CreationTimestamp;
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+import java.util.Objects;
 
 @Entity
+@Table(name = "account")
+
+
 public class Account {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Column(name = "account_id")
+    private Long accountId;
 
-    private String beneficiaryName;
-    private String pin;
-    private double balance;
+    @Column(name = "balance")
+    private BigDecimal balance;
 
-    @OneToMany(mappedBy = "account", cascade = CascadeType.ALL)
-    private List<Transaction> transactions = new ArrayList<>();
-
-    // Конструкторы, геттеры и сеттеры
+    @Column(name = "createdAt")
+    @CreationTimestamp
+    private LocalDateTime createdAt;
 
 
     public Account() {
-
     }
 
-    public double getBalance() {
+    public Account(Long accountId, BigDecimal balance) {
+        this.accountId = accountId;
+        this.balance = balance;
+    }
+
+    public Long getAccountId() {
+        return accountId;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public void setAccountId(Long accountNumberId) {
+        this.accountId = accountNumberId;
+    }
+
+    public BigDecimal getBalance() {
         return balance;
     }
 
-    public void setBalance(double balance) {
+    public void setBalance(BigDecimal balance) {
         this.balance = balance;
     }
 
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
 
-    public String getPin() {
-        return pin;
+        Account account = (Account) o;
+
+        return Objects.equals(getAccountId(), account.getAccountId()) &&
+                Objects.equals(getBalance(), account.getBalance());
     }
 
-    public void setPin(String pin) {
-        this.pin = pin;
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+                getAccountId(),
+                getBalance());
     }
 
-    public void setBeneficiaryName(String beneficiaryName) {
-        this.beneficiaryName = beneficiaryName;
+    @Override
+    public String toString() {
+        return "Account{" +
+                ", accountNumber=" + accountId +
+                ", balance=" + balance +
+                '}';
     }
+
+
+
 }

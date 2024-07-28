@@ -12,7 +12,7 @@ Design and implement a RESTful API, backing service and data model to create ban
 
 • A specific call will fetch all the accounts: the name and their current balance. • APIs will use JSON payloads when applicable.
 
-• Use in-memory database as a backing store. Recommendations
+• Use in-memory database as a backing stores. Recommendations
 
 • Use any technologies you feel comfortable with, but it is recommended you set up your project using Spring Boot.
 

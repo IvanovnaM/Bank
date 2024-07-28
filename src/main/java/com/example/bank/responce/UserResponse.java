@@ -1,12 +1,28 @@
 package com.example.bank.responce;
+import lombok.Getter;
+import lombok.Setter;
+
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+
 public class UserResponse {
+    @Setter
+    @Getter
     public boolean success;
+    @Setter
+    @Getter
     public String name;
+    @Setter
+    @Getter
     public String email;
+    @Getter
+    @Setter
     public Long accountNumber;
+    @Setter
+    @Getter
     public BigDecimal balance;
+    @Getter
+    @Setter
     public String message;
     public String sessionId;
 
@@ -34,56 +50,8 @@ public class UserResponse {
         this.sessionId = sessionId;
     }
 
-    public BigDecimal getBalance() {
-        return balance;
-    }
-
-    public void setBalance(BigDecimal balance) {
-        this.balance = balance;
-    }
-
     public String getTimestamp() {
         return LocalDateTime.now().toString();
-    }
-
-    public boolean isSuccess() {
-        return success;
-    }
-
-    public void setSuccess(boolean success) {
-        this.success = success;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public Long getAccountNumber() {
-        return accountNumber;
-    }
-
-    public void setAccountNumber(Long accountNumber) {
-        this.accountNumber = accountNumber;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
     }
 
     @Override

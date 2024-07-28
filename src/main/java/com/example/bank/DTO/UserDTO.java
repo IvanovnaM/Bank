@@ -1,8 +1,15 @@
 package com.example.bank.DTO;
-import com.example.bank.BankApplication;
+
 import com.example.bank.utility.AccountNumberGenerator;
+import com.example.bank.BankApplication;
+
+
+import lombok.Getter;
+import lombok.Setter;
 
 import java.math.BigDecimal;
+@Setter
+@Getter
 public class UserDTO extends AccountNumberGenerator{
     private Long id;
     private String email;
@@ -32,54 +39,6 @@ public class UserDTO extends AccountNumberGenerator{
     }
 
     public UserDTO() {
-    }
-
-    public BigDecimal getBalance() {
-        return balance;
-    }
-
-    public void setBalance(BigDecimal balance) {
-        this.balance = balance;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getPin() {
-        return pin;
-    }
-
-    public void setPin(int pin) {
-        this.pin = pin;
-    }
-
-    public Long getAccountNumber() {
-        return accountNumber;
-    }
-
-    public void setAccountNumber(Long accountNumber) {
-        this.accountNumber = accountNumber;
     }
 
     @Override

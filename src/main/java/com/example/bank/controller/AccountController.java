@@ -4,13 +4,14 @@ import com.example.bank.model.Transaction;
 import com.example.bank.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
+
 @RestController
 @RequestMapping("/api/accounts")
 public class AccountController {
     @Autowired
     private AccountService accountService;
+
 
     @PostMapping
     public Account createAccount(@RequestParam String beneficiaryName, @RequestParam String pin) {

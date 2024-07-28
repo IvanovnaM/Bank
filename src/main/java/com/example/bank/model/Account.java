@@ -1,15 +1,17 @@
 package com.example.bank.model;
 
 import jakarta.persistence.*;
+import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
+
 @Entity
 @Table(name = "account")
 
-
+@Data
 public class Account {
     @Id
     @Column(name = "account_id")
@@ -83,7 +85,6 @@ public class Account {
                 ", balance=" + balance +
                 '}';
     }
-
 
 
 }
